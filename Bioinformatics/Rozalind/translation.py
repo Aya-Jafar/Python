@@ -23,3 +23,6 @@ def translation(rna):
             protein += codons_and_amino.get(rna[i:i+3])
     protein = protein.replace('Stop', '')
     return protein
+
+
+print(translation("AUGUAUAGCCGGAAGGCCCUGUUAG"))
