@@ -174,25 +174,18 @@ make_primers_Obj(forward_Primers)
 
 
 # Making the reverse primers list
-bases = {
-    'A': 'T',
-    'T': 'A',
-    'G': 'C',
-    'C': 'G'
-}
 
 # Make complementary strand
 def make_complementary(start, end, original):
+    bases = {
+        'A': 'T',
+        'T': 'A',
+        'G': 'C',
+        'C': 'G'
+    }
     complementary = ""
     for base in original[start:end]:
-        if base == 'A':
-            complementary += bases.get('A')
-        if base == 'T':
-            complementary += bases.get('T')
-        if base == 'C':
-            complementary += bases.get('C')
-        if base == 'G':
-            complementary += bases.get('G')
+         complementary += bases.get(base)
     return complementary
     
 
