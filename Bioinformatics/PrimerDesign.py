@@ -23,8 +23,11 @@ original = original[0:200]
 
 # Make a small framgments of the original DNA of the same length of primer
 def make_sub_Dna(dna):
+    """
+    Take the original sequence and make subsequences of it of length 20 (primer length can vary depends on the experiment)
+    """
     subDna = []  # each element will contain a primer of 20 bases
-    for i in range(0, len(dna)):
+    for i in range(0, len(dna)): # depends on how many primers you want, you can make the 3rd argument (step) in the range = the primer length
         subDna.append(dna[i:i+20])
         if len(dna[i:i+20]) < 20:
             subDna.remove(dna[i:i+20])
@@ -51,6 +54,9 @@ global checker   # global var to use in many functions
 
 
 def count_Percentage(primer):
+    """
+    Takes a primer sequence and returns the percentage of C and G
+    """
     count = 0
     percenatage = 0
     count += primer.count('C')
@@ -60,6 +66,14 @@ def count_Percentage(primer):
 
 
 def check_ends(primer):
+    """
+    Takes a primer sequence and check the ends of it
+    input : ACTGACTG
+    output : False ( it does not end with at least 2 bases of G or C in both sides)
+    
+    input : CCCTATGAGGG
+    output : True
+    """
     last_3 = primer[len(primer)-3:len(primer)]
     first_3 = primer[0:3]
     first_2 = primer[0:2]
@@ -117,6 +131,9 @@ print("5' Leading-----> 3'\n")
 
 
 def check_Tm(tm):
+    """
+    Tm (melting tempreture) should be between 50 and 65 
+    """
     if tm >= 50 and tm <= 65:
         return True
     else:
@@ -131,6 +148,9 @@ best_and_Locus = dict() #will contain all the choosen primers that achieved most
 
 
 def make_primers_Obj(primersList):
+    """
+    Make primers objects and choose the best of it (the ones that have more True values which represents how many conditions it acheived)
+    """
     locus = 0
     is_good_percent = False
     for primer in primersList:
