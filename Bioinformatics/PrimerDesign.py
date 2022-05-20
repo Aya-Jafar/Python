@@ -27,7 +27,7 @@ def make_sub_Dna(dna):
     Take the original sequence and make subsequences of it of length 20 (primer length can vary depends on the experiment)
     """
     subDna = []  # each element will contain a primer of 20 bases
-    for i in range(0, len(dna)): # depends on how many primers you want, you can make the 3rd argument (step) in the range = the primer length
+    for i in range(0, len(dna),20): # depends on how many primers you want, you can make the 3rd argument (step) in the range = the primer length
         subDna.append(dna[i:i+20])
         if len(dna[i:i+20]) < 20:
             subDna.remove(dna[i:i+20])
