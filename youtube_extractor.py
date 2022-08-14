@@ -1,5 +1,9 @@
 import youtube_dl
 
+
+'''
+playlist.txt stores youtube linkes for a playlist to extract from it
+'''
 playlist_file = open("playlist.txt")
 
 with open("output.json", 'a+') as output:
@@ -12,4 +16,12 @@ with open("output.json", 'a+') as output:
                 output.write('\n')
                 output.write(
                     f'ID:{video.get("id")}-Tittle:{video.get("title")}')
-            
+
+'''
+Output example :
+output.jason 
+    ID:Nn7EX3zkGUo-Tittle:Introduction - CS50's Web Programming with Python and JavaScript 2020
+    ID:zFZrkCIc2Oc-Tittle:HTML and CSS - Lecture 0 - CS50's Web Programming with Python and JavaScript 2020
+    ID:NcoBAfJ6l2Q-Tittle:Git - Lecture 1 - CS50's Web Programming with Python and JavaScript 2020
+    ID:EOLPQdVj5Ac-Tittle:Python - Lecture 2 - CS50's Web Programming with Python and JavaScript 2020
+'''
